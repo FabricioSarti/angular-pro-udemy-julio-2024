@@ -20,6 +20,7 @@ En los conceptos avanzados aprendi:
     8. Comunicación de componentes a cualquier nivel utilizando Event Emitter.
     9. Creación de variables de referencia para el manejo de subscripciones y la destrucción de los mismos para evitar los memory leaks.
     10. Proyecciones de contenido.
+    11. Migración en marcha ya que este curso de angular se encontraba en la versión 7 y se traslado a la versión 14.
 
 En este repositorio se crea un timer simple, sin embargo, el codigo enriquecido figura sobre principios de Clean Code y la reutilización e inyección de componentes, aprovechando al máximo lo que Angular nos Ofrece como framework.
 
