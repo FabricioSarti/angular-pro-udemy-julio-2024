@@ -1,0 +1,16 @@
+<h1>
+  <app-progress-bar [progress]="counterProgres"></app-progress-bar>
+  <!-- property binding de entrada [init] con corchetes-->
+  <!-- Event binding (onDecrease) entre parentesis-->
+
+  <!-- con el #variableAccesoCountDown ya lo puedo manipular en el ts-->
+  <app-countdown #variableAccesoCountDown [init]="totalCounterNumber" (onDecrease)="updateProgress($event)"
+    (onComplete)="countDownFinish()"></app-countdown>
+
+  <div class="initInput">
+    <label for="totalCountDown">Init on: </label>
+    <input id="totalCountDown" type="text" [(ngModel)]="totalCounterNumber" />
+  </div>
+
+  <button (click)="variableAccesoCountDown.startCountDown();counterProgres=0;">Restart</button>
+</h1>

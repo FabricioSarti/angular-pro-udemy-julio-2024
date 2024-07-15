@@ -1,0 +1,22 @@
+<div>
+  <div class="background"></div>
+
+  <div class="card">
+
+    <!-- el tipo de atributo header -->
+    <!-- se puede utilizar en el select=, atributos html, clases, o atributos, por eso en el footer utilizo 
+      el select = button y lo que hace es colocarme todos los botones alli -->
+    <div class="header">
+      <ng-content select="[header]"></ng-content>
+    </div>
+    <div class="message">
+      <ng-content>
+      </ng-content>
+    </div>
+
+    <div class="footer">
+      <ng-content select="button"></ng-content>
+    </div>
+  </div>
+
+</div>

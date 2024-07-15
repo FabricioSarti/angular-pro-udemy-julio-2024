@@ -1,0 +1,19 @@
+<div class="timer">
+  <!--ESTE ES UN COMPONENTE STATELESS ES DECIR QUE ES UN COMPONENTE PRESENTACIONAL 
+  YA QUE NO MANEJA COMO TAL ALGUN CODIGO DE LOGICA FUERA DE SU COMPONENTE-->
+  <app-progress-bar [progress]="progress"></app-progress-bar>
+
+  <!-- INTERESANTE, ACA USAMOS ESTO operador de fusión nula (??) Y LO QUE HACE ES QUE SI SE DETECTA QUE ES NULO ENTONCES SE USA EL 0  
+   ((timer.countDownSource$ | async) ?? 0) esto lo quitamos pero aca se deja la referencia-->
+
+  <!-- 
+  <app-display [time]="((timer.countDownSource$ | async) ?? 0)"></app-display> 
+   -->
+  <app-display [time]="this.countDown"></app-display>
+
+  <div class="buttons">
+    <button *ngIf="timer.paused" (click)="timer.toogleCountDown()">Play</button>
+    <button *ngIf="!timer.paused" (click)="timer.toogleCountDown()">Pause</button>
+    <button (click)="timer.restartCountdown()">RESTART</button>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div>
+  <app-tabs>
+    <app-tab title="Timers">
+      <!-- este es un componente stateful debido a que maneja toda la logica de la aplicacion -->
+      <app-timer *ngFor="let timer of timers" [init]="timer" (onComplete)="countDownFinished()"></app-timer>
+    </app-tab>
+    <app-tab title="Crono">
+      Contenido crono
+    </app-tab>
+    <app-tab title="Alarm">
+      Contenido alarm
+    </app-tab>
+  </app-tabs>
+
+  <!--
+  <app-timer-native [init]="13" (onComplete)="countDownFinished()"></app-timer-native>
+  <app-timer-none [init]="15" (onComplete)="countDownFinished()"></app-timer-none>-->
+
+  <button class="add" (click)="showAddTimer()">+</button>
+  <app-alert-view [hidden]="!isAddtimerVisible">
+
+    <div header>
+      Add new timer
+    </div>
+
+    <label>Set the number of seconds for your timer</label>
+    <input [(ngModel)]="time" type="number" #timerInput>
+
+    <button (click)="hideAddTimer()" class="cancel-button">Cancel</button>
+    <button (click)="submitAddTimer()">Ok</button>
+  </app-alert-view>
+
+  <ng-container #alertRender ></ng-container>
+
+  <!--
+  <app-alert-view [hidden]="!isEndTimerAlertVisible">
+
+    <div header>
+      Timer ended
+    </div>
+
+    <div>Your countdown has finished</div>
+    <button (click)="hideAddAlterTimer()">Ok</button>
+  </app-alert-view>
+
+  -->
+
+  <!-- con query list me va a tomar este primero -->
+  <!-- Se comenta por ejemplo en ng-container -->
+  <!---->
+  <!-- USO DE NG CONTAINER Y NG TEMPLATE-->
+
+
+  <!--
+  <ng-template #timeEndTemplate let-message let-title="titulo">
+    <app-simple-alert-view [title]="title" [message]="message"></app-simple-alert-view>
+  </ng-template>
+
+  -->
+
+  <!-- ACA SE PUEDEN PASAR VARIABLES A TRAVEZ DE NG-TEMPLATE POR EJEMPLO PARA PASARLE EL TITLE SE DEFINIO ESTO
+   let-title="title" let-title entiendo que es como declarar una variable tipo let y nombre.
+
+   ahora lo que esta despues del signo igual "title", ese title tiene que venir aca de ngTemplateOutletContext:
+
+   [ngTemplateOutletContext]="{title:'gameOver',$implicit:'timer ended'}"
+
+   el $implicit quiere decir que le colocara a la variable let-message ese valor porque esta implicito.
+
+   let-message="message" tambien es valido hacerlo así, de hecho asi se hizo el titulo, pero en el titulo si se debe de asignar el 
+   
+  -->
+
+  <!--
+  <ng-container [ngTemplateOutlet]="timeEndTemplate"
+    [ngTemplateOutletContext]="{titulo:'gameOver',$implicit:'timer ended'}">
+  </ng-container>-->
+
+  <!-- explorando el doom tiene sentido esto, aca lo que se hace con ng-container es llamar correctamente al componente-->
+  
+  <!--
+  <ng-container [ngTemplateOutlet]="timeEndTemplate"></ng-container>
+  <ng-container [ngTemplateOutlet]="timeEndTemplate"></ng-container>
+  <ng-container [ngTemplateOutlet]="timeEndTemplate"></ng-container>
+  -->
+
+  
+</div>
